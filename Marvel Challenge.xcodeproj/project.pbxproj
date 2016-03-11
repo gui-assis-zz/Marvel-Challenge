@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95593179EDD73C8F3F2C6B9C /* Pods_Marvel_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6E8C244BEE7E36AF21295C /* Pods_Marvel_Challenge.framework */; };
 		E3F6BAC91C925C3F005A7B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BAC81C925C3F005A7B59 /* AppDelegate.swift */; };
-		E3F6BACB1C925C3F005A7B59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BACA1C925C3F005A7B59 /* ViewController.swift */; };
 		E3F6BACE1C925C3F005A7B59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F6BACC1C925C3F005A7B59 /* Main.storyboard */; };
 		E3F6BAD11C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BACF1C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld */; };
 		E3F6BAD31C925C3F005A7B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F6BAD21C925C3F005A7B59 /* Assets.xcassets */; };
@@ -35,9 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0CC7E3817237E2893F4F669 /* Pods-Marvel Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel Challenge/Pods-Marvel Challenge.release.xcconfig"; sourceTree = "<group>"; };
+		E311508D310804CBCC613EF9 /* Pods-Marvel Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel Challenge/Pods-Marvel Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		E3F6BAC51C925C3F005A7B59 /* Marvel Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F6BAC81C925C3F005A7B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E3F6BACA1C925C3F005A7B59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E3F6BACD1C925C3F005A7B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3F6BAD01C925C3F005A7B59 /* Marvel_Challenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marvel_Challenge.xcdatamodel; sourceTree = "<group>"; };
 		E3F6BAD21C925C3F005A7B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		E3F6BAE71C925C3F005A7B59 /* Marvel ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F6BAEB1C925C3F005A7B59 /* Marvel_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel_ChallengeUITests.swift; sourceTree = "<group>"; };
 		E3F6BAED1C925C3F005A7B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF6E8C244BEE7E36AF21295C /* Pods_Marvel_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95593179EDD73C8F3F2C6B9C /* Pods_Marvel_Challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +79,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F3057CAD0B3D83F9575DAB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF6E8C244BEE7E36AF21295C /* Pods_Marvel_Challenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4BA11869CFE6038062A9ED3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E311508D310804CBCC613EF9 /* Pods-Marvel Challenge.debug.xcconfig */,
+				B0CC7E3817237E2893F4F669 /* Pods-Marvel Challenge.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E3DF456C1C92741400E71709 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E3DF456D1C92741400E71709 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E3DF456E1C92741400E71709 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E3DF456F1C92741400E71709 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		E3F6BABC1C925C3F005A7B59 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +131,8 @@
 				E3F6BADF1C925C3F005A7B59 /* Marvel ChallengeTests */,
 				E3F6BAEA1C925C3F005A7B59 /* Marvel ChallengeUITests */,
 				E3F6BAC61C925C3F005A7B59 /* Products */,
+				A4BA11869CFE6038062A9ED3 /* Pods */,
+				9F3057CAD0B3D83F9575DAB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,12 +150,15 @@
 			isa = PBXGroup;
 			children = (
 				E3F6BAC81C925C3F005A7B59 /* AppDelegate.swift */,
-				E3F6BACA1C925C3F005A7B59 /* ViewController.swift */,
 				E3F6BACC1C925C3F005A7B59 /* Main.storyboard */,
 				E3F6BAD21C925C3F005A7B59 /* Assets.xcassets */,
 				E3F6BAD41C925C3F005A7B59 /* LaunchScreen.storyboard */,
 				E3F6BAD71C925C3F005A7B59 /* Info.plist */,
 				E3F6BACF1C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld */,
+				E3DF456C1C92741400E71709 /* Helpers */,
+				E3DF456D1C92741400E71709 /* Model */,
+				E3DF456E1C92741400E71709 /* Services */,
+				E3DF456F1C92741400E71709 /* View Controllers */,
 			);
 			path = "Marvel Challenge";
 			sourceTree = "<group>";
@@ -135,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3F6BAF01C925C3F005A7B59 /* Build configuration list for PBXNativeTarget "Marvel Challenge" */;
 			buildPhases = (
+				84CC9FCFC66C73C30F8BF21B /* Check Pods Manifest.lock */,
 				E3F6BAC11C925C3F005A7B59 /* Sources */,
 				E3F6BAC21C925C3F005A7B59 /* Frameworks */,
 				E3F6BAC31C925C3F005A7B59 /* Resources */,
+				1639EDD43DAB39CDA307C6B7 /* Embed Pods Frameworks */,
+				EDA9D4605E050C223021C343 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,12 +310,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1639EDD43DAB39CDA307C6B7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Marvel Challenge/Pods-Marvel Challenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84CC9FCFC66C73C30F8BF21B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EDA9D4605E050C223021C343 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Marvel Challenge/Pods-Marvel Challenge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E3F6BAC11C925C3F005A7B59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F6BACB1C925C3F005A7B59 /* ViewController.swift in Sources */,
 				E3F6BAC91C925C3F005A7B59 /* AppDelegate.swift in Sources */,
 				E3F6BAD11C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld in Sources */,
 			);
@@ -399,6 +502,7 @@
 		};
 		E3F6BAF11C925C3F005A7B59 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E311508D310804CBCC613EF9 /* Pods-Marvel Challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Marvel Challenge/Info.plist";
@@ -410,6 +514,7 @@
 		};
 		E3F6BAF21C925C3F005A7B59 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0CC7E3817237E2893F4F669 /* Pods-Marvel Challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Marvel Challenge/Info.plist";
@@ -486,6 +591,7 @@
 				E3F6BAF21C925C3F005A7B59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3F6BAF31C925C3F005A7B59 /* Build configuration list for PBXNativeTarget "Marvel ChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +600,7 @@
 				E3F6BAF51C925C3F005A7B59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3F6BAF61C925C3F005A7B59 /* Build configuration list for PBXNativeTarget "Marvel ChallengeUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +609,7 @@
 				E3F6BAF81C925C3F005A7B59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
