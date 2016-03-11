@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		95593179EDD73C8F3F2C6B9C /* Pods_Marvel_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6E8C244BEE7E36AF21295C /* Pods_Marvel_Challenge.framework */; };
+		E3DF45741C9274C400E71709 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF45731C9274C400E71709 /* Thumbnail.swift */; };
+		E3DF45831C9275EF00E71709 /* ResponseObjectSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF45821C9275EF00E71709 /* ResponseObjectSerializer.swift */; };
+		E3DF45851C92769A00E71709 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF45841C92769A00E71709 /* Comic.swift */; };
+		E3DF45871C9276E800E71709 /* Serie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF45861C9276E800E71709 /* Serie.swift */; };
+		E3DF45891C9276FF00E71709 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF45881C9276FF00E71709 /* Event.swift */; };
+		E3DF458B1C92771600E71709 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF458A1C92771600E71709 /* Story.swift */; };
+		E3DF458D1C92781D00E71709 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF458C1C92781D00E71709 /* Url.swift */; };
+		E3DF458F1C9278BA00E71709 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF458E1C9278BA00E71709 /* Character.swift */; };
 		E3F6BAC91C925C3F005A7B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BAC81C925C3F005A7B59 /* AppDelegate.swift */; };
 		E3F6BACE1C925C3F005A7B59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F6BACC1C925C3F005A7B59 /* Main.storyboard */; };
 		E3F6BAD11C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BACF1C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld */; };
@@ -37,6 +45,14 @@
 /* Begin PBXFileReference section */
 		B0CC7E3817237E2893F4F669 /* Pods-Marvel Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel Challenge/Pods-Marvel Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		E311508D310804CBCC613EF9 /* Pods-Marvel Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel Challenge/Pods-Marvel Challenge.debug.xcconfig"; sourceTree = "<group>"; };
+		E3DF45731C9274C400E71709 /* Thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		E3DF45821C9275EF00E71709 /* ResponseObjectSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializer.swift; sourceTree = "<group>"; };
+		E3DF45841C92769A00E71709 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		E3DF45861C9276E800E71709 /* Serie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serie.swift; sourceTree = "<group>"; };
+		E3DF45881C9276FF00E71709 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E3DF458A1C92771600E71709 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		E3DF458C1C92781D00E71709 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
+		E3DF458E1C9278BA00E71709 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		E3F6BAC51C925C3F005A7B59 /* Marvel Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F6BAC81C925C3F005A7B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F6BACD1C925C3F005A7B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +115,7 @@
 		E3DF456C1C92741400E71709 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E3DF45821C9275EF00E71709 /* ResponseObjectSerializer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -106,6 +123,13 @@
 		E3DF456D1C92741400E71709 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3DF45731C9274C400E71709 /* Thumbnail.swift */,
+				E3DF45841C92769A00E71709 /* Comic.swift */,
+				E3DF45861C9276E800E71709 /* Serie.swift */,
+				E3DF45881C9276FF00E71709 /* Event.swift */,
+				E3DF458A1C92771600E71709 /* Story.swift */,
+				E3DF458C1C92781D00E71709 /* Url.swift */,
+				E3DF458E1C9278BA00E71709 /* Character.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,7 +388,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F6BAC91C925C3F005A7B59 /* AppDelegate.swift in Sources */,
+				E3DF45831C9275EF00E71709 /* ResponseObjectSerializer.swift in Sources */,
+				E3DF45871C9276E800E71709 /* Serie.swift in Sources */,
+				E3DF45851C92769A00E71709 /* Comic.swift in Sources */,
+				E3DF458D1C92781D00E71709 /* Url.swift in Sources */,
 				E3F6BAD11C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld in Sources */,
+				E3DF45891C9276FF00E71709 /* Event.swift in Sources */,
+				E3DF458F1C9278BA00E71709 /* Character.swift in Sources */,
+				E3DF45741C9274C400E71709 /* Thumbnail.swift in Sources */,
+				E3DF458B1C92771600E71709 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
