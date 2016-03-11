@@ -16,6 +16,7 @@
 		E3DF458B1C92771600E71709 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF458A1C92771600E71709 /* Story.swift */; };
 		E3DF458D1C92781D00E71709 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF458C1C92781D00E71709 /* Url.swift */; };
 		E3DF458F1C9278BA00E71709 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF458E1C9278BA00E71709 /* Character.swift */; };
+		E3DF45911C927B2000E71709 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF45901C927B2000E71709 /* ImageHelper.swift */; };
 		E3F6BAC91C925C3F005A7B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BAC81C925C3F005A7B59 /* AppDelegate.swift */; };
 		E3F6BACE1C925C3F005A7B59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F6BACC1C925C3F005A7B59 /* Main.storyboard */; };
 		E3F6BAD11C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BACF1C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld */; };
@@ -53,6 +54,7 @@
 		E3DF458A1C92771600E71709 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		E3DF458C1C92781D00E71709 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		E3DF458E1C9278BA00E71709 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		E3DF45901C927B2000E71709 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		E3F6BAC51C925C3F005A7B59 /* Marvel Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F6BAC81C925C3F005A7B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F6BACD1C925C3F005A7B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				E3DF45821C9275EF00E71709 /* ResponseObjectSerializer.swift */,
+				E3DF45901C927B2000E71709 /* ImageHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				E3DF458F1C9278BA00E71709 /* Character.swift in Sources */,
 				E3DF45741C9274C400E71709 /* Thumbnail.swift in Sources */,
 				E3DF458B1C92771600E71709 /* Story.swift in Sources */,
+				E3DF45911C927B2000E71709 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
