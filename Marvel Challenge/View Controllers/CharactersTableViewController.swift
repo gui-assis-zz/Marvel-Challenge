@@ -15,6 +15,11 @@ class CharactersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logo = UIImage(named: "icn-nav-marvel")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
         self.characterPresenter = CharacterPresenter(delegate: self)
         self.characterPresenter.showCharacterList()
     }
@@ -35,9 +40,9 @@ class CharactersTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CharacterCell", forIndexPath: indexPath) as! CharacterCell
+        let cell: CharacterCell = tableView.dequeueReusableCellWithIdentifier("CharacterCell", forIndexPath: indexPath) as! CharacterCell
         let character = self.characters[indexPath.row]
-        cell.imgCharacter.loadImageWithUrl(character.thumbnail, placeholder: UIImage(named: "icn-nav-marvel")!, reloadCache: false)
+        cell.setupWithCharacter(character)
         return cell
     }
 }

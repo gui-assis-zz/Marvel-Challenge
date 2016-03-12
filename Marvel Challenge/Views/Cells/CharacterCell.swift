@@ -11,10 +11,25 @@ import UIKit
 class CharacterCell: UITableViewCell {
 
     @IBOutlet weak var imgCharacter: UIImageView!
+    @IBOutlet weak var lblCharacterName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+    
+    func setupWithCharacter(character: CharacterViewObject) {
+        self.imgCharacter.loadImageWithUrl(character.thumbnail, placeholder: UIImage(named: "icn-nav-marvel")!, reloadCache: false)
+        self.lblCharacterName.text = character.name
+    }
+    
+    override func didMoveToSuperview() {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor]
+        gradientLayer.locations = [0.2, 1.0]
+        gradientLayer.frame = self.bounds
+        self.imgCharacter.layer.insertSublayer(gradientLayer, atIndex: 1)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -32,10 +32,12 @@ extension CharacterPresenter: CharacterServiceDelegate {
     
     func onGetCharacters(characters: [Character]) {
         var charactersVO: [CharacterViewObject] = []
+        var thumbnails: [Thumbnail] = []
         for character in characters {
+            thumbnails.append(character.thumbnail)
             charactersVO.append(CharacterViewObject(name: character.name, thumbnail: "\(character.thumbnail.path).\(character.thumbnail.imageExtension)"))
         }
-        
+        ImageHelper.preHeatImagesForThumbnails(thumbnails)
         self.delegate.onGetCharacterList(charactersVO)
     }
     

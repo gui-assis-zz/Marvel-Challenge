@@ -12,6 +12,7 @@ import Nuke
 public typealias ImageLoadCompletionBlock = (image: UIImage?) -> Void
 
 class ImageHelper: NSObject {
+    
     class func loadImageWithUrl(url: String, reloadCache: Bool, completion: ImageLoadCompletionBlock) {
         var request = ImageRequest(URL: NSURL(string: url)!)
         request.memoryCachePolicy = reloadCache ? .ReloadIgnoringCachedImage : .ReturnCachedImageElseLoad
@@ -19,6 +20,15 @@ class ImageHelper: NSObject {
         Nuke.taskWith(request) { (response) -> Void in
             completion(image: response.image)
         }.resume()
+    }
+    
+    class func preHeatImagesForThumbnails(thumbs: [Thumbnail]) {
+        var requests: [ImageRequest] = []
+        for thumbnail in thumbs {
+            requests.append(ImageRequest(URL: thumbnail.getThumbUrl()))
+        }
+        
+        Nuke.startPreheatingImages(requests)
     }
 }
 
