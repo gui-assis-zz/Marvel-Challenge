@@ -33,8 +33,11 @@ class ImageHelper: NSObject {
 }
 
 extension UIImageView {
-    func loadImageWithUrl(url: String, placeholder: UIImage, reloadCache: Bool) {
-        self.image = placeholder
+    func loadImageWithUrl(url: String, placeholder: UIImage?, reloadCache: Bool) {
+        if let _placeholder = placeholder {
+            self.image = _placeholder
+        }
+        
         ImageHelper.loadImageWithUrl(url, reloadCache: reloadCache) { (image) -> Void in
             self.image = image
         }

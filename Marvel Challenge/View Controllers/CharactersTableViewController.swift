@@ -12,7 +12,7 @@ class CharactersTableViewController: UITableViewController {
     
     var characters: [CharacterViewObject] = []
     var characterPresenter: CharacterPresenter!
-    let searchController = UISearchController(searchResultsController: nil)
+    var searchController: UISearchController!
     
     lazy var imageView: UIImageView = {
         let logo = UIImage(named: "icn-nav-marvel")
@@ -27,6 +27,9 @@ class CharactersTableViewController: UITableViewController {
         self.characterPresenter = CharacterPresenter(delegate: self)
         self.characterPresenter.showCharacterList()
         
+        let searchResultTableViewController = SearchResultsTableViewController()
+        
+        searchController = UISearchController(searchResultsController: searchResultTableViewController)
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = true
@@ -98,6 +101,9 @@ extension CharactersTableViewController: UISearchBarDelegate {
 
 extension CharactersTableViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-
+        
+        let resultsController = searchController.searchResultsController as! SearchResultsTableViewController
+//        resultsController.filteredProducts = filteredResults
+        resultsController.tableView.reloadData()
     }
 }
