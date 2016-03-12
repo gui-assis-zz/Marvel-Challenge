@@ -12,16 +12,31 @@ class CharactersTableViewController: UITableViewController {
     
     var characters: [CharacterViewObject] = []
     var characterPresenter: CharacterPresenter!
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    lazy var imageView: UIImageView = {
+        let logo = UIImage(named: "icn-nav-marvel")
+        return UIImageView(image:logo)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logo = UIImage(named: "icn-nav-marvel")
-        let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         
         self.characterPresenter = CharacterPresenter(delegate: self)
         self.characterPresenter.showCharacterList()
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = true
+        
+        self.extendedLayoutIncludesOpaqueBars = true
+        self.definesPresentationContext = true
+        
+        self.tableView.tableHeaderView = searchController.searchBar
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +60,11 @@ class CharactersTableViewController: UITableViewController {
         cell.setupWithCharacter(character)
         return cell
     }
+    
+    //MARK: Private methods
+    @IBAction func btnSearchClick(sender: AnyObject) {
+        self.searchController.active = true
+    }
 }
 
 extension CharactersTableViewController: CharacterPresenterDelegate {
@@ -58,5 +78,24 @@ extension CharactersTableViewController: CharacterPresenterDelegate {
     
     func onGetCharacterListError(message: String) {
         print(message)
+    }
+}
+
+extension CharactersTableViewController: UISearchBarDelegate {
+    // MARK: - UISearchBar Delegate
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    }
+}
+
+extension CharactersTableViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        
+//        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
 }

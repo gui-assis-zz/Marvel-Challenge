@@ -26,6 +26,10 @@ class CharacterPresenter: NSObject {
         self.service = CharactersService(delegate: self)
         service.getCharacters()
     }
+    
+    func showCharacterDetail(characterId: Int) {
+        
+    }
 }
 
 extension CharacterPresenter: CharacterServiceDelegate {

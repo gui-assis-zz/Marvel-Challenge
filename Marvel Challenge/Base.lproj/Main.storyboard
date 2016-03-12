@@ -11,12 +11,19 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="myU-Gb-IKs" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="ShW-Xv-Uww">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="60X-ay-XAj">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="EbS-7F-3e5" kind="relationship" relationship="rootViewController" id="Zc2-b5-yry"/>
                     </connections>
@@ -93,7 +100,18 @@
                             <outlet property="delegate" destination="EbS-7F-3e5" id="YpS-tm-cio"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="IyV-aB-QhH"/>
+                    <navigationItem key="navigationItem" id="IyV-aB-QhH">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Fv8-E9-e6s">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5aG-M9-jxd">
+                                <rect key="frame" x="552" y="8" width="28" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icn-nav-search"/>
+                                <connections>
+                                    <action selector="btnSearchClick:" destination="EbS-7F-3e5" eventType="touchUpInside" id="2nQ-ct-y7Q"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kZ-Kc-U5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,5 +120,6 @@
     </scenes>
     <resources>
         <image name="bg-cell-title" width="160" height="36"/>
+        <image name="icn-nav-search" width="28" height="28"/>
     </resources>
 </document>
