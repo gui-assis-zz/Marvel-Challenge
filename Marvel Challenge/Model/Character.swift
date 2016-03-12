@@ -15,7 +15,7 @@ class Character: ResponseObjectSerializable {
     var name: String
     var description: String
     var modified: String
-    var thumbnail: Thumbnail?
+    var thumbnail: Thumbnail
     var resourceURI: String
     var comics: [Comic] = []
     var series: [Serie] = []
@@ -30,7 +30,7 @@ class Character: ResponseObjectSerializable {
         self.modified = json["modified"].stringValue
         self.resourceURI = json["resourceURI"].stringValue
         
-        self.thumbnail = Thumbnail(json: json["thumbnail"])
+        self.thumbnail = Thumbnail(json: json["thumbnail"])!
         
         for (_, subJson):(String, JSON) in json["comics"]["items"] {
             self.comics.append(Comic(json: subJson)!)
@@ -51,5 +51,41 @@ class Character: ResponseObjectSerializable {
         for (_, subJson):(String, JSON) in json["urls"] {
             self.urls.append(Url(json: subJson)!)
         }
+    }
+    
+    func printDescription() {
+        print("********************** \(self.name) **********************")
+        print("Description: \(self.description)")
+        print("Modified: \(self.modified)")
+        print("Thumbnail Path: \(self.thumbnail.path)")
+        print("Thumbnail Extension: \(self.thumbnail.imageExtension)")
+        print("Resource URI: \(self.resourceURI)")
+        
+        print("Comics: \(self.comics.count)")
+        for comic in self.comics {
+            print("Name: \(comic.name)")
+        }
+        
+        print("Series: \(self.series.count)")
+        for serie in self.series {
+            print(" - Name: \(serie.name)")
+        }
+        
+        print("Stories: \(self.stories.count)")
+        for story in self.stories {
+            print(" - Name: \(story.name)")
+        }
+        
+        print("Events: \(self.events.count)")
+        for event in self.events {
+            print(" - Name: \(event.name)")
+        }
+        
+        print("URLS: ")
+        for url in self.urls {
+            print(" - \(url.url)")
+        }
+        
+        print("**********************************************************\n\n")
     }
 }

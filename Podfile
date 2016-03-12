@@ -7,7 +7,7 @@ target 'Marvel Challenge' do
 
 pod 'SwiftyJSON'
 pod 'Alamofire'
-pod "Nuke"
+pod 'Nuke'
 
 end
 
