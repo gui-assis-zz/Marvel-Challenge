@@ -39,7 +39,7 @@ extension CharacterPresenter: CharacterServiceDelegate {
         var thumbnails: [Thumbnail] = []
         for character in characters {
             thumbnails.append(character.thumbnail)
-            charactersVO.append(CharacterViewObject(name: character.name, thumbnail: "\(character.thumbnail.path).\(character.thumbnail.imageExtension)"))
+            charactersVO.append(CharacterViewObject(name: character.name, thumbnail: "\(character.thumbnail.path).\(character.thumbnail.imageExtension)", characterId: character.id))
         }
         ImageHelper.preHeatImagesForThumbnails(thumbnails)
         self.delegate.onGetCharacterList(charactersVO)

@@ -13,12 +13,15 @@ class CharacterCell: UITableViewCell {
     @IBOutlet weak var imgCharacter: UIImageView!
     @IBOutlet weak var lblCharacterName: UILabel!
     
+    var character: CharacterViewObject!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
     func setupWithCharacter(character: CharacterViewObject) {
+        self.character = character
         self.imgCharacter.loadImageWithUrl(character.thumbnail, placeholder: UIImage(named: "icn-nav-marvel")!, reloadCache: false)
         self.lblCharacterName.text = character.name
     }

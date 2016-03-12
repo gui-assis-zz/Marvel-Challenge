@@ -112,10 +112,31 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="uMp-Ma-N0q" kind="show" identifier="segueCharacterDetail" action="showDetailViewController:sender:" id="SCr-xS-6NT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kZ-Kc-U5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1009" y="-328"/>
+        </scene>
+        <!--Character Detail View Controller-->
+        <scene sceneID="FCT-ZV-mEg">
+            <objects>
+                <viewController id="uMp-Ma-N0q" customClass="CharacterDetailViewController" customModule="Marvel_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DPD-bt-1Xu"/>
+                        <viewControllerLayoutGuide type="bottom" id="vTp-dd-yVp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3EQ-YU-jqg">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxb-nx-APm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="-328"/>
         </scene>
     </scenes>
     <resources>

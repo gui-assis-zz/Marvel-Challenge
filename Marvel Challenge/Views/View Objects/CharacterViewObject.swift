@@ -11,9 +11,11 @@ import UIKit
 class CharacterViewObject: NSObject {
     var name: String
     var thumbnail: String
+    var characterId: Int
     
-    init(name: String, thumbnail: String) {
+    init(name: String, thumbnail: String, characterId: Int) {
         self.name = name
         self.thumbnail = thumbnail
+        self.characterId = characterId
     }
 }

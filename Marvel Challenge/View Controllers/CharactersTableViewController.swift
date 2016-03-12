@@ -61,6 +61,18 @@ class CharactersTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let characterSelected = self.characters[indexPath.row]
+        self.performSegueWithIdentifier("segueCharacterDetail", sender: characterSelected)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueCharacterDetail" {
+            let detailViewController = segue.destinationViewController as! CharacterDetailViewController
+            detailViewController.character = sender as! CharacterViewObject
+        }
+    }
+    
     //MARK: Private methods
     @IBAction func btnSearchClick(sender: AnyObject) {
         self.searchController.active = true
@@ -68,13 +80,11 @@ class CharactersTableViewController: UITableViewController {
 }
 
 extension CharactersTableViewController: CharacterPresenterDelegate {
-    
     func onGetCharacterList(characters: [CharacterViewObject]) {
         self.characters.removeAll()
         self.characters.appendContentsOf(characters)
         self.tableView.reloadData()
     }
-
     
     func onGetCharacterListError(message: String) {
         print(message)
@@ -82,20 +92,12 @@ extension CharactersTableViewController: CharacterPresenterDelegate {
 }
 
 extension CharactersTableViewController: UISearchBarDelegate {
-    // MARK: - UISearchBar Delegate
-    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
-    }
-    
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
     }
 }
 
 extension CharactersTableViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        
-//        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+
     }
 }
