@@ -28,6 +28,7 @@ class CharactersTableViewController: UITableViewController {
         self.characterPresenter.showCharacterList()
         
         let searchResultTableViewController = SearchResultsTableViewController()
+        searchResultTableViewController.delegate = self
         
         searchController = UISearchController(searchResultsController: searchResultTableViewController)
         searchController.searchResultsUpdater = self
@@ -103,7 +104,14 @@ extension CharactersTableViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
         let resultsController = searchController.searchResultsController as! SearchResultsTableViewController
-//        resultsController.filteredProducts = filteredResults
+        resultsController.results = self.characters
         resultsController.tableView.reloadData()
+    }
+}
+
+extension CharactersTableViewController: SearchResultsTableDelegate {
+    func onCharacterSelected(character: CharacterViewObject) {
+        self.searchController.active = false
+        self.performSegueWithIdentifier("segueCharacterDetail", sender: character)
     }
 }
