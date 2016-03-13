@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (3.2.1)
+  - MXParallaxHeader (0.5.0)
   - Nuke (2.2.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire
+  - MXParallaxHeader
   - Nuke
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  MXParallaxHeader: c7dfdf8d769a8eb868a431ec3aeaf994a147b8bc
   Nuke: 6d6797f46f6c0e62b40aa1ffc01a22a830c1cc34
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 

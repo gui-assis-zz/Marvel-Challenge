@@ -85,11 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Marvel Challenge/Alamofire.framework"
+  install_framework "Pods-Marvel Challenge/MXParallaxHeader.framework"
   install_framework "Pods-Marvel Challenge/Nuke.framework"
   install_framework "Pods-Marvel Challenge/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Marvel Challenge/Alamofire.framework"
+  install_framework "Pods-Marvel Challenge/MXParallaxHeader.framework"
   install_framework "Pods-Marvel Challenge/Nuke.framework"
   install_framework "Pods-Marvel Challenge/SwiftyJSON.framework"
 fi
