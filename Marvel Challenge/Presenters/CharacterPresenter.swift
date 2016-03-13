@@ -11,20 +11,34 @@ import UIKit
 protocol CharacterPresenterDelegate {
     func onGetCharacterList(characters: [CharacterViewObject])
     func onGetCharacterListError(message: String)
+    func onGetCharacterSearchList(characters: [CharacterViewObject])
+}
+
+enum ServiceType {
+    case Search
+    case List
 }
 
 class CharacterPresenter: NSObject {
     
     var delegate: CharacterPresenterDelegate
     var service: CharactersService!
+    var serviceType: ServiceType!
     
     init(delegate: CharacterPresenterDelegate) {
         self.delegate = delegate
     }
     
-    func showCharacterList() {
+    func searchCharacterWithName(characterName: String) {
         self.service = CharactersService(delegate: self)
-        service.getCharacters()
+        serviceType = .Search
+        service.getCharacters(0, characterName: characterName)
+    }
+    
+    func showCharacterList(offset: Int) {
+        self.service = CharactersService(delegate: self)
+        serviceType = .List
+        service.getCharacters(offset)
     }
     
     func showCharacterDetail(characterId: Int) {
@@ -41,8 +55,14 @@ extension CharacterPresenter: CharacterServiceDelegate {
             thumbnails.append(character.thumbnail)
             charactersVO.append(CharacterViewObject(name: character.name, thumbnail: "\(character.thumbnail.path).\(character.thumbnail.imageExtension)", characterId: character.id))
         }
+        
         ImageHelper.preHeatImagesForThumbnails(thumbnails)
-        self.delegate.onGetCharacterList(charactersVO)
+        
+        if serviceType == .Search {
+            self.delegate.onGetCharacterSearchList(charactersVO)
+        } else if serviceType == .List {
+            self.delegate.onGetCharacterList(charactersVO)
+        }
     }
     
     func onGetCharactersError(error: NSError) {

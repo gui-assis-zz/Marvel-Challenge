@@ -31,16 +31,26 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9I4-pR-T8G">
+                        <rect key="frame" x="0.0" y="78" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.2627450980392157" green="0.28627450980392155" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="eTv-vm-dF0"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="XiB-g8-4Z2" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="4Au-9G-uVg"/>
                     <constraint firstItem="XiB-g8-4Z2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8i8-uY-gqv"/>
                     <constraint firstItem="XiB-g8-4Z2" firstAttribute="leading" secondItem="ZGA-h0-Sv1" secondAttribute="trailing" constant="8" id="BpR-tX-C6z"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9I4-pR-T8G" secondAttribute="trailing" constant="-8" id="Lnd-Yr-YHN"/>
+                    <constraint firstItem="9I4-pR-T8G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="RVs-mi-A08"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="9I4-pR-T8G" secondAttribute="bottom" constant="-8" id="bo4-X8-Z2g"/>
                     <constraint firstItem="ZGA-h0-Sv1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="eYs-7j-odJ"/>
                     <constraint firstItem="ZGA-h0-Sv1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="t6K-JZ-aLx"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.22352941176470587" green="0.24705882352941178" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="imgCharacter" destination="ZGA-h0-Sv1" id="0L2-Ml-Od1"/>
                 <outlet property="lblCharacterName" destination="XiB-g8-4Z2" id="mhz-NV-UfW"/>

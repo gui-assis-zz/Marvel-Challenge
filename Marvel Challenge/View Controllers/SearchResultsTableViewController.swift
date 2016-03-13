@@ -14,12 +14,13 @@ protocol SearchResultsTableDelegate {
 
 class SearchResultsTableViewController: UITableViewController {
     
-    var results: [CharacterViewObject]!
+    var results: [CharacterViewObject] = []
     var delegate: SearchResultsTableDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor.darkGrayColor()
+        tableView.backgroundColor = UIColor(red: 41.0/255.0, green: 44.0/255.0, blue: 48.0/255.0, alpha: 1)
+        tableView.separatorStyle = .None
         
         let nib = UINib(nibName: "SearchResultCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "SearchResultCell")

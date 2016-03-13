@@ -13,6 +13,7 @@ class CharactersTableViewController: UITableViewController {
     var characters: [CharacterViewObject] = []
     var characterPresenter: CharacterPresenter!
     var searchController: UISearchController!
+    var isLoading: Bool = false
     
     lazy var imageView: UIImageView = {
         let logo = UIImage(named: "icn-nav-marvel")
@@ -22,10 +23,10 @@ class CharactersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.titleView = imageView
+        navigationItem.titleView = imageView
         
-        self.characterPresenter = CharacterPresenter(delegate: self)
-        self.characterPresenter.showCharacterList()
+        characterPresenter = CharacterPresenter(delegate: self)
+        loadData(offset: 0)
         
         let searchResultTableViewController = SearchResultsTableViewController()
         searchResultTableViewController.delegate = self
@@ -36,11 +37,20 @@ class CharactersTableViewController: UITableViewController {
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = true
         
-        self.extendedLayoutIncludesOpaqueBars = true
-        self.definesPresentationContext = true
+        extendedLayoutIncludesOpaqueBars = true
+        definesPresentationContext = true
         
-        self.tableView.tableHeaderView = searchController.searchBar
+        tableView.tableHeaderView = searchController.searchBar
+    }
+    
+    func loadData(offset offset: Int, characterName: String? = nil){
+        isLoading = true
         
+        if let name = characterName {
+            characterPresenter.searchCharacterWithName(name)
+        } else {
+            characterPresenter.showCharacterList(offset)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,13 +65,19 @@ class CharactersTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.characters.count
+        return characters.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: CharacterCell = tableView.dequeueReusableCellWithIdentifier("CharacterCell", forIndexPath: indexPath) as! CharacterCell
         let character = self.characters[indexPath.row]
         cell.setupWithCharacter(character)
+        
+        if indexPath.row >= characters.count - 5 && !isLoading {
+            isLoading = true
+            self.loadData(offset: characters.count)
+        }
+        
         return cell
     }
     
@@ -84,13 +100,24 @@ class CharactersTableViewController: UITableViewController {
 }
 
 extension CharactersTableViewController: CharacterPresenterDelegate {
+    
+    func onGetCharacterSearchList(characters: [CharacterViewObject]) {
+        self.isLoading = false
+        
+        let resultsController = searchController.searchResultsController as! SearchResultsTableViewController
+        resultsController.results.removeAll()
+        resultsController.results.appendContentsOf(characters)
+        resultsController.tableView.reloadData()
+    }
+    
     func onGetCharacterList(characters: [CharacterViewObject]) {
-        self.characters.removeAll()
+        self.isLoading = false
         self.characters.appendContentsOf(characters)
         self.tableView.reloadData()
     }
     
     func onGetCharacterListError(message: String) {
+        self.isLoading = false
         print(message)
     }
 }
@@ -102,16 +129,12 @@ extension CharactersTableViewController: UISearchBarDelegate {
 
 extension CharactersTableViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        
-        let resultsController = searchController.searchResultsController as! SearchResultsTableViewController
-        resultsController.results = self.characters
-        resultsController.tableView.reloadData()
+        loadData(offset: 0, characterName: searchController.searchBar.text)
     }
 }
 
 extension CharactersTableViewController: SearchResultsTableDelegate {
     func onCharacterSelected(character: CharacterViewObject) {
-        self.searchController.active = false
         self.performSegueWithIdentifier("segueCharacterDetail", sender: character)
     }
 }

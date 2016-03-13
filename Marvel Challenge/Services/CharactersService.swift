@@ -25,8 +25,15 @@ class CharactersService: NSObject {
         self.delegate = delegate
     }
     
-    func getCharacters(){
-        service.get(self.path) { (json, error) -> Void in
+    func getCharacters(offset: Int, characterName: String? = nil){
+        
+        var parameters: [String: AnyObject]?
+        
+        if let _name = characterName {
+            parameters = ["nameStartsWith": _name]
+        }
+        
+        service.get(self.path, offset: offset, parameters: parameters) { (json, error) -> Void in
             
             guard error == nil else {
                 self.delegate.onGetCharactersError(error!)
@@ -37,10 +44,6 @@ class CharactersService: NSObject {
                 var characters: [Character] = []
                 for (_, subJson):(String, JSON) in _json {
                     characters.append(Character(json: subJson)!)
-                }
-                
-                for character in characters {
-                    character.printDescription()
                 }
                 
                 self.delegate.onGetCharacters(characters)

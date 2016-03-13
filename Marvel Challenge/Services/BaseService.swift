@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 public typealias RequestBlockCompletion = (JSON?, NSError?) -> Void
+public let requestLimit = 20
 
 class BaseService: NSObject {
     
@@ -19,13 +20,20 @@ class BaseService: NSObject {
     private let publicKey  = "d6d3532b4f029c0fc012eb242f4df075"
     private let privateKey = "94accbdcfa7d71475e95b8bd9494b32326773e06"
     
-    func get(path:String, requestBlockCompletion: RequestBlockCompletion) {
-        let url = "\(host)/\(apiVersion)/\(path)"
+    func get(path:String, offset: Int?, parameters: [String: AnyObject]? = nil, requestBlockCompletion: RequestBlockCompletion) {
         
+        let url = "\(host)/\(apiVersion)/\(path)"
         let timeStamp = self.getTimeStamp()
         let hash = md5(string: "\(timeStamp)\(self.privateKey)\(self.publicKey)")
+        var urlParameters: [String: AnyObject] = ["limit": requestLimit, "offset": offset ?? 0, "apikey": self.publicKey, "ts": timeStamp, "hash": hash]
         
-        Alamofire.request(.GET, url, parameters: ["limit": "20", "offset": "0", "apikey": self.publicKey, "ts": timeStamp, "hash": hash])
+        if let _parameters = parameters {
+            for (key, value):(String, AnyObject) in _parameters {
+               urlParameters[key] = value
+            }
+        }
+        
+        Alamofire.request(.GET, url, parameters: urlParameters)
             .responseJSON { response in
                 
                 switch response.result {
