@@ -14,6 +14,8 @@ class CharacterDetailViewController: UIViewController {
     
     @IBOutlet weak var imgBlurBackground: UIImageView!
     @IBOutlet weak var seriesCollection: UICollectionView!
+    @IBOutlet weak var eventsCollection: UICollectionView!
+    @IBOutlet weak var comicsCollection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,12 @@ class CharacterDetailViewController: UIViewController {
         
         imgBlurBackground.addSubview(blurEffectView)
         
-        seriesCollection.dataSource = self
         seriesCollection.delegate = self
+        seriesCollection.dataSource = self
+        eventsCollection.delegate = self
+        eventsCollection.dataSource = self
+        comicsCollection.delegate = self
+        comicsCollection.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,6 +74,14 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
             return character.series.items.count
         }
         
+        if collectionView == eventsCollection {
+            return character.events.items.count
+        }
+        
+        if collectionView == comicsCollection {
+            return character.comics.items.count
+        }
+        
         return 0
     }
     
@@ -76,7 +90,17 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
         
         if collectionView == seriesCollection {
             let serieItem = self.character.series.items[indexPath.row]
-            cell.setupWithCollection(serieItem)
+            cell.setupWithResourceURI(serieItem.resourceURI)
+        }
+        
+        if collectionView == eventsCollection {
+            let eventItem = self.character.events.items[indexPath.row]
+            cell.setupWithResourceURI(eventItem.resourceURI)
+        }
+        
+        if collectionView == comicsCollection {
+            let comicItem = self.character.comics.items[indexPath.row]
+            cell.setupWithResourceURI(comicItem.resourceURI)
         }
         
         return cell

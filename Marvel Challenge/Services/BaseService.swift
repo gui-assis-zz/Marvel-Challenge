@@ -22,7 +22,7 @@ class BaseService: NSObject {
     
     func get(path:String, offset: Int? = 0, parameters: [String: AnyObject]? = nil, requestBlockCompletion: RequestBlockCompletion) {
         
-        let url = "\(host)/\(apiVersion)/\(path)"
+        let url = path.beginsWith("http") ? path : "\(host)/\(apiVersion)/\(path)"
         let timeStamp = self.getTimeStamp()
         let hash = md5(string: "\(timeStamp)\(self.privateKey)\(self.publicKey)")
         var urlParameters: [String: AnyObject] = ["limit": requestLimit, "offset": offset ?? 0, "apikey": self.publicKey, "ts": timeStamp, "hash": hash]
@@ -32,6 +32,8 @@ class BaseService: NSObject {
                urlParameters[key] = value
             }
         }
+        
+        print("Request: \(url)")
         
         Alamofire.request(.GET, url, parameters: urlParameters)
             .responseJSON { response in

@@ -9,11 +9,11 @@
 import UIKit
 
 class CollectionItem: NSObject {
-    var thumbnail: String
+    var resourceURI: String
     var name: String
     
-    init(thumbnail: String, name: String) {
-        self.thumbnail = thumbnail
+    init(resourceURI: String, name: String) {
+        self.resourceURI = resourceURI
         self.name      = name
     }
 }

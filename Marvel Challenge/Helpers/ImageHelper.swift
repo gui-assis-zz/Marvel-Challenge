@@ -13,8 +13,8 @@ public typealias ImageLoadCompletionBlock = (image: UIImage?) -> Void
 
 class ImageHelper: NSObject {
     
-    class func loadImageWithUrl(url: String, reloadCache: Bool, completion: ImageLoadCompletionBlock) {
-        var request = ImageRequest(URL: NSURL(string: url)!)
+    class func loadImageWithUrl(url: NSURL, reloadCache: Bool, completion: ImageLoadCompletionBlock) {
+        var request = ImageRequest(URL: url)
         request.memoryCachePolicy = reloadCache ? .ReloadIgnoringCachedImage : .ReturnCachedImageElseLoad
         
         Nuke.taskWith(request) { (response) -> Void in
@@ -38,7 +38,7 @@ extension UIImageView {
             self.image = _placeholder
         }
         
-        ImageHelper.loadImageWithUrl(url, reloadCache: reloadCache) { (image) -> Void in
+        ImageHelper.loadImageWithUrl(NSURL(string: url)!, reloadCache: reloadCache) { (image) -> Void in
             self.image = image
         }
     }

@@ -13,8 +13,20 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgCollection: UIImageView!
     @IBOutlet weak var lblCollectionName: UILabel!
     
-    func setupWithCollection(collectionItem: CollectionItem) {
-        self.imgCollection.loadImageWithUrl(collectionItem.thumbnail, placeholder: nil, reloadCache: true)
-        self.lblCollectionName.text = collectionItem.name
+    
+    func setupWithResourceURI(resourceURI: String) {
+        let resourcePresenter = ResourcePresenter(delegate: self)
+        resourcePresenter.getResourceDetail(resourceURI)
+    }
+}
+
+extension CollectionViewCell: ResourcePresenterDelegate {
+    func onGetResourceItem(resourceItem: ResourceItem) {
+        self.imgCollection.image = resourceItem.resourceImage
+        self.lblCollectionName.text = resourceItem.title
+    }
+    
+    func onGetResourceItemErro(error: NSError) {
+        
     }
 }

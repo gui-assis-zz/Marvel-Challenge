@@ -60,19 +60,19 @@ extension CharacterPresenter: CharacterServiceDelegate {
             var series: [CollectionItem] = []
             
             for story in character.stories {
-                stories.append(CollectionItem(thumbnail: story.resourceURI, name: story.name))
+                stories.append(CollectionItem(resourceURI: story.resourceURI, name: story.name))
             }
             
             for event in character.events {
-                events.append(CollectionItem(thumbnail: event.resourceURI, name: event.name))
+                events.append(CollectionItem(resourceURI: event.resourceURI, name: event.name))
             }
             
             for comic in character.comics {
-                comics.append(CollectionItem(thumbnail: comic.resourceURI, name: comic.name))
+                comics.append(CollectionItem(resourceURI: comic.resourceURI, name: comic.name))
             }
             
             for serie in character.series {
-                series.append(CollectionItem(thumbnail: serie.resourceURI, name: serie.name))
+                series.append(CollectionItem(resourceURI: serie.resourceURI, name: serie.name))
             }
             
             let storyCollection = Collection(collectionType: .Stories, items: stories)
