@@ -24,6 +24,7 @@ class SearchResultCell: UITableViewCell {
         self.character = character
         self.imgCharacter.loadImageWithUrl(character.thumbnail, placeholder: nil, reloadCache: false)
         self.lblCharacterName.text = character.name
+        self.selectionStyle = .None
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

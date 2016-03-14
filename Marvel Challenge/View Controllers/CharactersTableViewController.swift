@@ -43,6 +43,10 @@ class CharactersTableViewController: UITableViewController {
         tableView.tableHeaderView = searchController.searchBar
     }
     
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+    }
+    
     func loadData(offset offset: Int, characterName: String? = nil){
         isLoading = true
         

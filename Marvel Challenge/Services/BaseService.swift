@@ -20,7 +20,7 @@ class BaseService: NSObject {
     private let publicKey  = "d6d3532b4f029c0fc012eb242f4df075"
     private let privateKey = "94accbdcfa7d71475e95b8bd9494b32326773e06"
     
-    func get(path:String, offset: Int?, parameters: [String: AnyObject]? = nil, requestBlockCompletion: RequestBlockCompletion) {
+    func get(path:String, offset: Int? = 0, parameters: [String: AnyObject]? = nil, requestBlockCompletion: RequestBlockCompletion) {
         
         let url = "\(host)/\(apiVersion)/\(path)"
         let timeStamp = self.getTimeStamp()

@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UISearchBar.appearance().barTintColor = UIColor.blackColor()
         UISearchBar.appearance().tintColor = UIColor.redColor()
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.whiteColor()
+        
         return true
     }
 
