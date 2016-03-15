@@ -92,7 +92,7 @@ class CharactersTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueCharacterDetail" {
-            let detailViewController = segue.destinationViewController as! CharacterDetailViewController
+            let detailViewController = segue.destinationViewController as! CharacterDetailTableViewController
             detailViewController.character = sender as! CharacterViewObject
         }
     }

@@ -19,10 +19,12 @@
 		E39BB8BB1C94CC34008991DC /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39BB8B91C94CC34008991DC /* SearchResultCell.xib */; };
 		E39BB8BD1C951C47008991DC /* CharacterDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39BB8BC1C951C47008991DC /* CharacterDetailTableViewController.swift */; };
 		E39BB8BF1C9531FB008991DC /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39BB8BE1C9531FB008991DC /* CharacterDetailViewController.swift */; };
+		E39C7E281C978F7900DF2A8C /* LinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C7E261C978F7900DF2A8C /* LinksTableViewCell.swift */; };
+		E39C7E2C1C978FC400DF2A8C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C7E2A1C978FC400DF2A8C /* CollectionViewCell.swift */; };
+		E39C7E301C979B7400DF2A8C /* SimpleTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C7E2E1C979B7400DF2A8C /* SimpleTextTableViewCell.swift */; };
+		E39C7E351C979E2D00DF2A8C /* UrlVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C7E341C979E2D00DF2A8C /* UrlVO.swift */; };
 		E3BBA8891C95FC9B00847A27 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBA8881C95FC9B00847A27 /* StringHelper.swift */; };
 		E3BBA88E1C9614A000847A27 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBA88C1C9614A000847A27 /* CollectionTableViewCell.swift */; };
-		E3BBA88F1C9614A000847A27 /* CollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3BBA88D1C9614A000847A27 /* CollectionTableViewCell.xib */; };
-		E3BBA8931C96355000847A27 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBA8921C96355000847A27 /* CollectionViewCell.swift */; };
 		E3BBA8951C963B2F00847A27 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBA8941C963B2F00847A27 /* Collection.swift */; };
 		E3BBA8971C963B4500847A27 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBA8961C963B4500847A27 /* CollectionItem.swift */; };
 		E3BBA8A91C965E5B00847A27 /* ResourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBA8A81C965E5B00847A27 /* ResourceService.swift */; };
@@ -79,10 +81,12 @@
 		E39BB8B91C94CC34008991DC /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		E39BB8BC1C951C47008991DC /* CharacterDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableViewController.swift; sourceTree = "<group>"; };
 		E39BB8BE1C9531FB008991DC /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		E39C7E261C978F7900DF2A8C /* LinksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksTableViewCell.swift; sourceTree = "<group>"; };
+		E39C7E2A1C978FC400DF2A8C /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E39C7E2E1C979B7400DF2A8C /* SimpleTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTextTableViewCell.swift; sourceTree = "<group>"; };
+		E39C7E341C979E2D00DF2A8C /* UrlVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlVO.swift; sourceTree = "<group>"; };
 		E3BBA8881C95FC9B00847A27 /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		E3BBA88C1C9614A000847A27 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
-		E3BBA88D1C9614A000847A27 /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
-		E3BBA8921C96355000847A27 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		E3BBA8941C963B2F00847A27 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		E3BBA8961C963B4500847A27 /* CollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
 		E3BBA8A81C965E5B00847A27 /* ResourceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceService.swift; sourceTree = "<group>"; };
@@ -172,9 +176,10 @@
 				E313D1881C93E06400325E8F /* CharacterCell.swift */,
 				E39BB8B81C94CC34008991DC /* SearchResultCell.swift */,
 				E39BB8B91C94CC34008991DC /* SearchResultCell.xib */,
+				E39C7E2E1C979B7400DF2A8C /* SimpleTextTableViewCell.swift */,
 				E3BBA88C1C9614A000847A27 /* CollectionTableViewCell.swift */,
-				E3BBA88D1C9614A000847A27 /* CollectionTableViewCell.xib */,
-				E3BBA8921C96355000847A27 /* CollectionViewCell.swift */,
+				E39C7E261C978F7900DF2A8C /* LinksTableViewCell.swift */,
+				E39C7E2A1C978FC400DF2A8C /* CollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				E3BBA8941C963B2F00847A27 /* Collection.swift */,
 				E3BBA8961C963B4500847A27 /* CollectionItem.swift */,
 				E3BBA8AE1C96644B00847A27 /* ResourceItem.swift */,
+				E39C7E341C979E2D00DF2A8C /* UrlVO.swift */,
 			);
 			path = "View Objects";
 			sourceTree = "<group>";
@@ -412,7 +418,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3BBA88F1C9614A000847A27 /* CollectionTableViewCell.xib in Resources */,
 				E3F6BAD61C925C3F005A7B59 /* LaunchScreen.storyboard in Resources */,
 				E3F6BAD31C925C3F005A7B59 /* Assets.xcassets in Resources */,
 				E39BB8BB1C94CC34008991DC /* SearchResultCell.xib in Resources */,
@@ -494,13 +499,13 @@
 				E3DF45871C9276E800E71709 /* Serie.swift in Sources */,
 				E39BB8BD1C951C47008991DC /* CharacterDetailTableViewController.swift in Sources */,
 				E3DF45851C92769A00E71709 /* Comic.swift in Sources */,
-				E3BBA8931C96355000847A27 /* CollectionViewCell.swift in Sources */,
 				E3DF458D1C92781D00E71709 /* Url.swift in Sources */,
 				E3F6BAD11C925C3F005A7B59 /* Marvel_Challenge.xcdatamodeld in Sources */,
 				E3BBA88E1C9614A000847A27 /* CollectionTableViewCell.swift in Sources */,
 				E39BB8BA1C94CC34008991DC /* SearchResultCell.swift in Sources */,
 				E3BBA8AF1C96644B00847A27 /* ResourceItem.swift in Sources */,
 				E3DF45891C9276FF00E71709 /* Event.swift in Sources */,
+				E39C7E351C979E2D00DF2A8C /* UrlVO.swift in Sources */,
 				E313D17E1C93C40900325E8F /* CharactersService.swift in Sources */,
 				E313D1931C93E34000325E8F /* CharacterViewObject.swift in Sources */,
 				E3BBA8A91C965E5B00847A27 /* ResourceService.swift in Sources */,
@@ -511,10 +516,13 @@
 				E3BBA8971C963B4500847A27 /* CollectionItem.swift in Sources */,
 				E3DF45741C9274C400E71709 /* Thumbnail.swift in Sources */,
 				E313D18E1C93E1DA00325E8F /* CharacterPresenter.swift in Sources */,
+				E39C7E281C978F7900DF2A8C /* LinksTableViewCell.swift in Sources */,
 				E3BBA8951C963B2F00847A27 /* Collection.swift in Sources */,
 				E3BBA8AD1C9660DD00847A27 /* ResourcePresenter.swift in Sources */,
 				E313D1891C93E06400325E8F /* CharacterCell.swift in Sources */,
+				E39C7E2C1C978FC400DF2A8C /* CollectionViewCell.swift in Sources */,
 				E3DF458B1C92771600E71709 /* Story.swift in Sources */,
+				E39C7E301C979B7400DF2A8C /* SimpleTextTableViewCell.swift in Sources */,
 				E313D1851C93DF7D00325E8F /* CharactersTableViewController.swift in Sources */,
 				E3DF45911C927B2000E71709 /* ImageHelper.swift in Sources */,
 				E3BBA8AB1C965E8300847A27 /* Resource.swift in Sources */,

@@ -58,6 +58,7 @@ extension CharacterPresenter: CharacterServiceDelegate {
             var comics: [CollectionItem] = []
             var events: [CollectionItem] = []
             var series: [CollectionItem] = []
+            var urls: [UrlVO] = []
             
             for story in character.stories {
                 stories.append(CollectionItem(resourceURI: story.resourceURI, name: story.name))
@@ -70,9 +71,13 @@ extension CharacterPresenter: CharacterServiceDelegate {
             for comic in character.comics {
                 comics.append(CollectionItem(resourceURI: comic.resourceURI, name: comic.name))
             }
-            
+    
             for serie in character.series {
                 series.append(CollectionItem(resourceURI: serie.resourceURI, name: serie.name))
+            }
+            
+            for url in character.urls {
+                urls.append(UrlVO(urlType: url.urlType, link: url.url))
             }
             
             let storyCollection = Collection(collectionType: .Stories, items: stories)
@@ -80,7 +85,7 @@ extension CharacterPresenter: CharacterServiceDelegate {
             let serieCollection = Collection(collectionType: .Series, items: series)
             let comicCollection = Collection(collectionType: .Comics, items: comics)
             
-            charactersVO.append(CharacterViewObject(name: character.name, thumbnail: "\(character.thumbnail.path).\(character.thumbnail.imageExtension)", characterId: character.id, comics: comicCollection, series: serieCollection, stories: storyCollection, events: eventCollection))
+            charactersVO.append(CharacterViewObject(name: character.name, characterDescription: character.description, thumbnail: "\(character.thumbnail.path).\(character.thumbnail.imageExtension)", characterId: character.id, comics: comicCollection, series: serieCollection, stories: storyCollection, events: eventCollection, urls: urls))
         }
         
         ImageHelper.preHeatImagesForThumbnails(thumbnails)

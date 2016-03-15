@@ -56,11 +56,11 @@ class CharacterDetailViewController: UIViewController {
 
 extension CharacterDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y <= 44 {
-//            navigationController?.setNavigationBarHidden(true, animated: true)
-//        } else {
-//            navigationController?.setNavigationBarHidden(false, animated: true)
-//        }
+        if scrollView.contentOffset.y <= 44 {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        } else {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
 }
 
@@ -88,20 +88,6 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: CollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
         
-        if collectionView == seriesCollection {
-            let serieItem = self.character.series.items[indexPath.row]
-            cell.setupWithResourceURI(serieItem.resourceURI)
-        }
-        
-        if collectionView == eventsCollection {
-            let eventItem = self.character.events.items[indexPath.row]
-            cell.setupWithResourceURI(eventItem.resourceURI)
-        }
-        
-        if collectionView == comicsCollection {
-            let comicItem = self.character.comics.items[indexPath.row]
-            cell.setupWithResourceURI(comicItem.resourceURI)
-        }
         
         return cell
     }

@@ -31,8 +31,10 @@ class ResourcePresenter: NSObject {
 extension ResourcePresenter: ResourceServiceDelegate {
     func onGetResource(resource: Resource) {
         ImageHelper.loadImageWithUrl(resource.thumbnail.getThumbUrl(), reloadCache: true) { (image) -> Void in
-            let resourceItem = ResourceItem(resourceImage: image!, title: resource.title)
-            self.delegate.onGetResourceItem(resourceItem)
+            if let _image = image {
+                let resourceItem = ResourceItem(resourceImage: _image, title: resource.title)
+                self.delegate.onGetResourceItem(resourceItem)
+            }
         }
     }
     
