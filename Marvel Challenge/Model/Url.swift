@@ -10,9 +10,20 @@ import UIKit
 import SwiftyJSON
 
 enum UrlType: String {
-    case detail = "Detail"
-    case wiki = "Wiki"
-    case comiclink = "Comiclink"
+    case detail = "detail"
+    case wiki = "wiki"
+    case comiclink = "comiclink"
+    
+    var description: String {
+        switch self {
+        case .detail:
+            return "Detail"
+        case .wiki:
+            return "Wiki"
+        case .comiclink:
+            return "Comiclink"
+        }
+    }
 }
 
 class Url: ResponseObjectSerializable {
@@ -22,6 +33,6 @@ class Url: ResponseObjectSerializable {
     
     required init?(json: JSON) {
         self.url = json["url"].stringValue
-        self.urlType = UrlType(rawValue: json["urlType"].stringValue) ?? UrlType.detail
+        self.urlType = UrlType(rawValue: json["type"].stringValue)!
     }
 }

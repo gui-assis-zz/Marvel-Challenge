@@ -8,15 +8,22 @@
 
 import UIKit
 
+protocol CollectionTableViewCellDelegate {
+    func didSelectItem(collection: Collection)
+}
+
 class CollectionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var delegate: CollectionTableViewCellDelegate!
     var collection: Collection!
     
-    
-    func setupWithCollection(collection: Collection) {
+    func setupWithCollection(collection: Collection, delegate: CollectionTableViewCellDelegate) {
         self.collection = collection
         self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.delegate = delegate
     }
     
     override func awakeFromNib() {
@@ -48,5 +55,11 @@ extension CollectionTableViewCell: UICollectionViewDataSource {
         cell.setupWithCollectionItem(collectionItem)
         
         return cell
+    }
+}
+
+extension CollectionTableViewCell: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.delegate.didSelectItem(collection)
     }
 }

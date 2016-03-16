@@ -13,22 +13,32 @@ class CharacterDetailTableViewController: UITableViewController {
     
     var character: CharacterViewObject!
     var rows: Int = 2
-
+    var sections: [CellType] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "icn-nav-back-white"), style: .Done, target: navigationController, action: Selector("popViewControllerAnimated:"))
-        navigationItem.leftBarButtonItem = backButton
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "icn-nav-back-white"), style: .Done, target: self, action: Selector("back:"))
         navigationItem.title = character.name
+        
+        let backButton = UIButton(type: UIButtonType.Custom)
+        backButton.frame = CGRectMake(0, 16, 50, 70)
+        backButton.tintColor = UIColor.whiteColor()
+        backButton.backgroundColor = UIColor.clearColor()
+        backButton.setImage(UIImage(named: "icn-nav-back-white"), forState: .Normal)
+        backButton.addTarget(self, action: "back:", forControlEvents: UIControlEvents.TouchUpInside)
         
         let imgHeader = UIImageView()
         imgHeader.loadImageWithUrl(character.thumbnail, placeholder: nil, reloadCache: false)
         imgHeader.contentMode = .ScaleAspectFill
+        imgHeader.addSubview(backButton)
+        imgHeader.userInteractionEnabled = true
         
         tableView.parallaxHeader.view = imgHeader
         tableView.parallaxHeader.height = (self.view.frame.size.height * 60)/100
         tableView.parallaxHeader.mode = .Fill
         tableView.parallaxHeader.minimumHeight = 0
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -42,6 +52,12 @@ class CharacterDetailTableViewController: UITableViewController {
         imgBackground.contentMode = .ScaleAspectFill
         imgBackground.addSubview(blurEffectView)
         tableView.backgroundView = imgBackground
+        
+        sections = CharacterPresenter.getDetailCellSections(character)
+    }
+    
+    func back(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,83 +68,108 @@ class CharacterDetailTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 7
+        return Set(sections).intersect(sections).count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 6 {
-            return 3
-        }
-        
-        return 1
+        let cellType = sections[section]
+        return sections.filter({ $0 == cellType}).count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        print("indexPath: \(indexPath.section)")
+        let cellType = sections[indexPath.section]
         
-        if indexPath.section == 0 {
+        switch cellType {
+        
+        case .NameCellType:
             let cell = tableView.dequeueReusableCellWithIdentifier("SimpleTextTableViewCell", forIndexPath: indexPath) as! SimpleTextTableViewCell
             cell.setupWithText(character.name ?? "")
             return cell
-        }
         
-        if indexPath.section == 1 {
+        case .DescriptionCellType:
             let cell = tableView.dequeueReusableCellWithIdentifier("SimpleTextTableViewCell", forIndexPath: indexPath) as! SimpleTextTableViewCell
-            cell.setupWithText(character.characterDescription ?? "No description available")
+            cell.setupWithText(character.characterDescription ?? "")
             return cell
-        }
         
-        if indexPath.section == 2 {
+        case .ComicCellType:
             let cell = tableView.dequeueReusableCellWithIdentifier("CollectionTableViewCell", forIndexPath: indexPath) as! CollectionTableViewCell
-            cell.setupWithCollection(character.comics)
+            cell.setupWithCollection(character.comics, delegate: self)
             return cell
-        }
         
-        if indexPath.section == 3 {
+        case .StoryCellType:
             let cell = tableView.dequeueReusableCellWithIdentifier("CollectionTableViewCell", forIndexPath: indexPath) as! CollectionTableViewCell
-            cell.setupWithCollection(character.series)
+            cell.setupWithCollection(character.stories, delegate: self)
             return cell
-        }
         
-        if indexPath.section == 4 {
+        case .SerieCellType:
             let cell = tableView.dequeueReusableCellWithIdentifier("CollectionTableViewCell", forIndexPath: indexPath) as! CollectionTableViewCell
-            cell.setupWithCollection(character.stories)
+            cell.setupWithCollection(character.series, delegate: self)
             return cell
-        }
         
-        if indexPath.section == 5 {
+        case .EventCellType:
             let cell = tableView.dequeueReusableCellWithIdentifier("CollectionTableViewCell", forIndexPath: indexPath) as! CollectionTableViewCell
-            cell.setupWithCollection(character.events)
+            cell.setupWithCollection(character.events, delegate: self)
             return cell
-        }
         
-        if indexPath.section == 6 {
+        case .LinksCellType:
             let urlVO = character.urls[indexPath.row]
             let cell = tableView.dequeueReusableCellWithIdentifier("LinksTableViewCell", forIndexPath: indexPath) as! LinksTableViewCell
             cell.setupWithUrlVO(urlVO)
             return cell
         }
         
-        return UITableViewCell()
     }
     
+    //MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 0 || indexPath.section == 1 {
+        
+        let cellType = sections[indexPath.section]
+        
+        switch cellType {
+            
+        case .NameCellType, .DescriptionCellType :
             return 70
-        }
-        
-        if indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5 {
+            
+        case .ComicCellType, .SerieCellType, .StoryCellType, .EventCellType:
             return 220
+            
+        default:
+            return 50
         }
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 27
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionType = sections[section]
         
-        return 51
+        let view = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 27))
+        view.backgroundColor = UIColor.clearColor()
+        
+        let lblSection = UILabel(frame: CGRectMake(8, 5, self.view.bounds.width, 27))
+        lblSection.backgroundColor = UIColor.clearColor()
+        lblSection.text = sectionType.rawValue
+        lblSection.font = UIFont(name: "HelveticaNeue-Bold", size: 11)
+        lblSection.textColor = UIColor.redColor()
+        
+        view.addSubview(lblSection)
+        
+        return view
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueGallery" {
+            let galleryVC = segue.destinationViewController as! GalleryViewController
+            galleryVC.collection = sender as! Collection
+        }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
-    
 }
 
 extension CharacterDetailTableViewController {
@@ -138,5 +179,11 @@ extension CharacterDetailTableViewController {
         } else {
             navigationController?.setNavigationBarHidden(false, animated: true)
         }
+    }
+}
+
+extension CharacterDetailTableViewController: CollectionTableViewCellDelegate {
+    func didSelectItem(collection: Collection) {
+        self.performSegueWithIdentifier("segueGallery", sender: character.comics)
     }
 }

@@ -15,6 +15,16 @@ enum CollectionType: String {
     case Events = "Events"
 }
 
+enum CellType: String {
+    case NameCellType = "NAME"
+    case DescriptionCellType = "DESCRIPTION"
+    case ComicCellType = "COMICS"
+    case StoryCellType = "STORIES"
+    case SerieCellType = "SERIES"
+    case EventCellType = "EVENTS"
+    case LinksCellType = "RELATED LINKS"
+}
+
 class CharacterViewObject: NSObject {
     var name: String
     var characterDescription: String

@@ -41,8 +41,37 @@ class CharacterPresenter: NSObject {
         service.getCharacters(offset)
     }
     
-    func showCharacterDetail(characterId: Int) {
+    class func getDetailCellSections(character: CharacterViewObject) -> [CellType] {
+        var cells: [CellType] = []
+        if !character.name.isEmpty {
+            cells.append(.NameCellType)
+        }
         
+        if !character.characterDescription.isEmpty {
+            cells.append(.DescriptionCellType)
+        }
+        
+        if character.comics.items.count > 0 {
+            cells.append(.ComicCellType)
+        }
+
+//        if character.stories.items.count > 0 {
+//            cells.append(.StoryCellType)
+//        }
+        
+        if character.series.items.count > 0 {
+            cells.append(.SerieCellType)
+        }
+        
+        if character.events.items.count > 0 {
+            cells.append(.EventCellType)
+        }
+        
+        for _ in character.urls {
+            cells.append(.LinksCellType)
+        }
+        
+        return cells
     }
 }
 
@@ -77,6 +106,7 @@ extension CharacterPresenter: CharacterServiceDelegate {
             }
             
             for url in character.urls {
+                print("character name: \(character.name), url: \(url.urlType.rawValue)")
                 urls.append(UrlVO(urlType: url.urlType, link: url.url))
             }
             

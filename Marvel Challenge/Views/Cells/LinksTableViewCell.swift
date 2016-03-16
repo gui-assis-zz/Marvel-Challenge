@@ -14,7 +14,7 @@ class LinksTableViewCell: UITableViewCell {
     var link: String!
     
     func setupWithUrlVO(urlVO: UrlVO){
-        self.lblLinkType.text = urlVO.urlType.rawValue
+        self.lblLinkType.text = urlVO.urlType.description
         self.link = urlVO.link
     }
     

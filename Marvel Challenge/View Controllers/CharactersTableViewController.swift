@@ -44,6 +44,7 @@ class CharactersTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
     }
     
