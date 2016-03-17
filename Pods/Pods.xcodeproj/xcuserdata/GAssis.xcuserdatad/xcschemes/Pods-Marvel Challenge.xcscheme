@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '03FA0032E28DC382C0AF0658'
+               BlueprintIdentifier = '21A9A62543FDECA636FF3057'
                BlueprintName = 'Pods-Marvel Challenge'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Marvel_Challenge.framework'>

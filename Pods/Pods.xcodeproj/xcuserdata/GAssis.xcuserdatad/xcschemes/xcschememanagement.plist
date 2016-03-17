@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Nuke.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Marvel Challenge.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DCECF492B851D5842D85CDA1B1ED11B</key>
+		<key>21C0493B8F90A4D6B0BCED35544FBFAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DF42E73BE56153E373A10022230CB96</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>787C074BB1FE6300B9727B29E4BA3EC0</key>
+		<key>77BAA623B8EC4650FD896B4CA5A1A3E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
