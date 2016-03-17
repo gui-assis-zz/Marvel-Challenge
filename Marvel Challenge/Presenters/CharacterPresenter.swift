@@ -106,7 +106,6 @@ extension CharacterPresenter: CharacterServiceDelegate {
             }
             
             for url in character.urls {
-                print("character name: \(character.name), url: \(url.urlType.rawValue)")
                 urls.append(UrlVO(urlType: url.urlType, link: url.url))
             }
             

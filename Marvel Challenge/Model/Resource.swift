@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class Resource: ResponseObjectSerializable {
+class ResourceCharacter: ResponseObjectSerializable {
     
     var id: Int
     var title: String

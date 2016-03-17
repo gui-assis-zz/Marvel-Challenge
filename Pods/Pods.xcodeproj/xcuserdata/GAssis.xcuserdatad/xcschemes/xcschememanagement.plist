@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MXParallaxHeader.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>437A1A75BD9BEAD1B086B626CE5F8F52</key>
+		<key>0DCECF492B851D5842D85CDA1B1ED11B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4DF42E73BE56153E373A10022230CB96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>787C074BB1FE6300B9727B29E4BA3EC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D0E2963BE89D80FC01B72A3F9D3CC39E</key>
+		<key>F91226101ECE8FCFD221A3EC54481F82</key>
 		<dict>
 			<key>primary</key>
 			<true/>

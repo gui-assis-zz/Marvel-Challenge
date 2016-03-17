@@ -123,7 +123,6 @@ extension CharactersTableViewController: CharacterPresenterDelegate {
     
     func onGetCharacterListError(message: String) {
         self.isLoading = false
-        print(message)
     }
 }
 

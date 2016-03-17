@@ -13,6 +13,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgCollection: UIImageView!
     
     func setupWithCollectionItem(collectionItem: CollectionItem) {
+        imgCollection.hidden = true
         let resourcePresenter = ResourcePresenter(delegate: self)
         resourcePresenter.getResourceDetail(collectionItem.resourceURI)
     }
@@ -21,7 +22,8 @@ class GalleryCollectionViewCell: UICollectionViewCell {
 extension GalleryCollectionViewCell: ResourcePresenterDelegate {
     
     func onGetResourceItem(resourceItem: ResourceItem) {
-        self.imgCollection.image = resourceItem.resourceImage
+        imgCollection.image = resourceItem.resourceImage
+        imgCollection.hidden = false
     }
     
     func onGetResourceItemErro(error: NSError) {

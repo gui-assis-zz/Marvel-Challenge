@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 protocol ResourceServiceDelegate {
-    func onGetResource(resource: Resource)
+    func onGetResource(resource: ResourceCharacter)
     func onGetResourceError(error: NSError)
 }
 
@@ -33,9 +33,9 @@ class ResourceService: NSObject {
             }
             
             if let _json = json {
-                var resources: [Resource] = []
+                var resources: [ResourceCharacter] = []
                 for (_, subJson):(String, JSON) in _json {
-                    resources.append(Resource(json: subJson)!)
+                    resources.append(ResourceCharacter(json: subJson)!)
                 }
                 
                 self.delegate.onGetResource(resources[0])

@@ -33,8 +33,6 @@ class BaseService: NSObject {
             }
         }
         
-        print("Request: \(url)")
-        
         Alamofire.request(.GET, url, parameters: urlParameters)
             .responseJSON { response in
                 

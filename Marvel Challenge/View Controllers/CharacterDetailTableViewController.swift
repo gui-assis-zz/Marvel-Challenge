@@ -29,7 +29,7 @@ class CharacterDetailTableViewController: UITableViewController {
         backButton.addTarget(self, action: "back:", forControlEvents: UIControlEvents.TouchUpInside)
         
         let imgHeader = UIImageView()
-        imgHeader.loadImageWithUrl(character.thumbnail, placeholder: nil, reloadCache: false)
+        imgHeader.loadImageWithUrl(character.thumbnail, placeholder: nil)
         imgHeader.contentMode = .ScaleAspectFill
         imgHeader.addSubview(backButton)
         imgHeader.userInteractionEnabled = true
@@ -48,7 +48,7 @@ class CharacterDetailTableViewController: UITableViewController {
         blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         let imgBackground = UIImageView()
-        imgBackground.loadImageWithUrl(character.thumbnail, placeholder: nil, reloadCache: false)
+        imgBackground.loadImageWithUrl(character.thumbnail, placeholder: nil)
         imgBackground.contentMode = .ScaleAspectFill
         imgBackground.addSubview(blurEffectView)
         tableView.backgroundView = imgBackground
@@ -160,6 +160,15 @@ class CharacterDetailTableViewController: UITableViewController {
         return view
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cellType = sections[indexPath.section]
+        
+        if cellType == .LinksCellType {
+            let item = character.urls[indexPath.row]
+            UIApplication.sharedApplication().openURL(NSURL(string: item.link)!)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueGallery" {
             let galleryVC = segue.destinationViewController as! GalleryViewController
@@ -184,6 +193,6 @@ extension CharacterDetailTableViewController {
 
 extension CharacterDetailTableViewController: CollectionTableViewCellDelegate {
     func didSelectItem(collection: Collection) {
-        self.performSegueWithIdentifier("segueGallery", sender: character.comics)
+        self.performSegueWithIdentifier("segueGallery", sender: collection)
     }
 }

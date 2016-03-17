@@ -8,18 +8,25 @@
 
 import UIKit
 import Nuke
+import Kingfisher
 
 public typealias ImageLoadCompletionBlock = (image: UIImage?) -> Void
 
 class ImageHelper: NSObject {
     
-    class func loadImageWithUrl(url: NSURL, reloadCache: Bool, completion: ImageLoadCompletionBlock) {
-        var request = ImageRequest(URL: url)
-        request.memoryCachePolicy = reloadCache ? .ReloadIgnoringCachedImage : .ReturnCachedImageElseLoad
+    class func loadImageWithUrl(url: NSURL, completion: ImageLoadCompletionBlock) {
         
-        Nuke.taskWith(request) { (response) -> Void in
-            completion(image: response.image)
-        }.resume()
+        let downloader = KingfisherManager.sharedManager.downloader
+        let myCache = ImageCache(name: url.absoluteString)
+        
+        let optionInfo: KingfisherOptionsInfo = [
+            .ForceRefresh,
+            .TargetCache(myCache)
+        ]
+        
+        downloader.downloadImageWithURL(url, options: optionInfo, progressBlock: nil) { (image, error, imageURL, originalData) -> () in
+            completion(image: image)
+        }
     }
     
     class func preHeatImagesForThumbnails(thumbs: [Thumbnail]) {
@@ -33,12 +40,12 @@ class ImageHelper: NSObject {
 }
 
 extension UIImageView {
-    func loadImageWithUrl(url: String, placeholder: UIImage?, reloadCache: Bool) {
+    func loadImageWithUrl(url: String, placeholder: UIImage?) {
         if let _placeholder = placeholder {
             self.image = _placeholder
         }
         
-        ImageHelper.loadImageWithUrl(NSURL(string: url)!, reloadCache: reloadCache) { (image) -> Void in
+        ImageHelper.loadImageWithUrl(NSURL(string: url)!) { (image) -> Void in
             self.image = image
         }
     }

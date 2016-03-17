@@ -22,7 +22,7 @@ class SearchResultCell: UITableViewCell {
     
     func setupWithCharacter(character: CharacterViewObject) {
         self.character = character
-        self.imgCharacter.loadImageWithUrl(character.thumbnail, placeholder: nil, reloadCache: false)
+        self.imgCharacter.loadImageWithUrl(character.thumbnail, placeholder: nil)
         self.lblCharacterName.text = character.name
         self.selectionStyle = .None
     }

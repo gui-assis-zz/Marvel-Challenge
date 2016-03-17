@@ -9,6 +9,7 @@ pod 'SwiftyJSON'
 pod 'Alamofire'
 pod 'Nuke'
 pod 'MXParallaxHeader'
+pod 'Kingfisher', '~> 2.1'
 
 end
 

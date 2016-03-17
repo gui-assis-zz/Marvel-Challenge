@@ -48,6 +48,7 @@
 		E3F6BAD61C925C3F005A7B59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F6BAD41C925C3F005A7B59 /* LaunchScreen.storyboard */; };
 		E3F6BAE11C925C3F005A7B59 /* Marvel_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BAE01C925C3F005A7B59 /* Marvel_ChallengeTests.swift */; };
 		E3F6BAEC1C925C3F005A7B59 /* Marvel_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6BAEB1C925C3F005A7B59 /* Marvel_ChallengeUITests.swift */; };
+		E3FA87861C9A52F200E12614 /* CustomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA87851C9A52F200E12614 /* CustomProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		E3F6BAE71C925C3F005A7B59 /* Marvel ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F6BAEB1C925C3F005A7B59 /* Marvel_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel_ChallengeUITests.swift; sourceTree = "<group>"; };
 		E3F6BAED1C925C3F005A7B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3FA87851C9A52F200E12614 /* CustomProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProtocol.swift; sourceTree = "<group>"; };
 		FF6E8C244BEE7E36AF21295C /* Pods_Marvel_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 				E3DF45821C9275EF00E71709 /* ResponseObjectSerializer.swift */,
 				E3DF45901C927B2000E71709 /* ImageHelper.swift */,
 				E3BBA8881C95FC9B00847A27 /* StringHelper.swift */,
+				E3FA87851C9A52F200E12614 /* CustomProtocol.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				E39C7E351C979E2D00DF2A8C /* UrlVO.swift in Sources */,
 				E313D17E1C93C40900325E8F /* CharactersService.swift in Sources */,
 				E313D1931C93E34000325E8F /* CharacterViewObject.swift in Sources */,
+				E3FA87861C9A52F200E12614 /* CustomProtocol.swift in Sources */,
 				E3BBA8A91C965E5B00847A27 /* ResourceService.swift in Sources */,
 				E313D1781C93BE1F00325E8F /* BaseService.swift in Sources */,
 				E3DF458F1C9278BA00E71709 /* Character.swift in Sources */,

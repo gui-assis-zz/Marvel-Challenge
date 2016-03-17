@@ -14,6 +14,8 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblCollectionName: UILabel!
     
     func setupWithCollectionItem(collectionItem: CollectionItem) {
+        imgCollection.hidden = true
+        lblCollectionName.text = ""
         let resourcePresenter = ResourcePresenter(delegate: self)
         resourcePresenter.getResourceDetail(collectionItem.resourceURI)
     }
@@ -22,8 +24,9 @@ class CollectionViewCell: UICollectionViewCell {
 extension CollectionViewCell: ResourcePresenterDelegate {
     
     func onGetResourceItem(resourceItem: ResourceItem) {
-        self.imgCollection.image = resourceItem.resourceImage
-        self.lblCollectionName.text = resourceItem.title
+        imgCollection.hidden = false
+        imgCollection.image = resourceItem.resourceImage
+        lblCollectionName.text = resourceItem.title
     }
     
     func onGetResourceItemErro(error: NSError) {

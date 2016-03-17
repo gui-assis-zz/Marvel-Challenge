@@ -29,8 +29,8 @@ class ResourcePresenter: NSObject {
 }
 
 extension ResourcePresenter: ResourceServiceDelegate {
-    func onGetResource(resource: Resource) {
-        ImageHelper.loadImageWithUrl(resource.thumbnail.getThumbUrl(), reloadCache: true) { (image) -> Void in
+    func onGetResource(resource: ResourceCharacter) {
+        ImageHelper.loadImageWithUrl(resource.thumbnail.getThumbUrl()) { (image) -> Void in
             if let _image = image {
                 let resourceItem = ResourceItem(resourceImage: _image, title: resource.title)
                 self.delegate.onGetResourceItem(resourceItem)
